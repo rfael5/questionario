@@ -1,0 +1,27 @@
+a) Escreva um SELECT que retorne o nome_estado com valor ‘Paraná’.
+
+SELECT * FROM estado WHERE nome_estado = 'Paraná'
+____________________________________________________________________________
+b) Escreva um SELECT que retorne todas as tuplas com o “nome_estado” e o “nome_pais”.
+
+SELECT * FROM estado as e
+INNER JOIN pais as p ON e.id_pais = p.id 
+
+_________________________________________________________________________________________
+
+c) Altere a tabela “pais” para adicionar um novo campo de nome “sigla” com limite para 2 caracteres. 
+Escreva abaixo o comando utilizado para realizar esta tarefa.
+
+ALTER TABLE pais ADD COLUMN siglas CHAR(2) not null
+
+________________________________________________________________________________________________
+
+d) Crie uma nova tabela chamada “cidade” com as colunas “id”, “nome_cidade” e “id_estado” 
+sendo a coluna “id” uma Primary Key com Auto Increment e “id_estado” uma Foreign Key da coluna “id” 
+da tabela “estado”.
+
+CREATE TABLE cidade(
+
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nome_cidade VARCHAR(100) NOT NULL,
+	FOREIGN KEY(id_estado) REFERENCES estado(id)  
